@@ -14,6 +14,8 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+#since  base_dir has course inside, but our path just before the course file
+(MY_DIR, COURSE) = os.path.split(BASE_DIR)
 
 
 # Quick-start development settings - unsuitable for production
@@ -58,7 +60,8 @@ ROOT_URLCONF = 'course.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        #'DIRS': ['/Users/kevinxu/Desktop/Knowledge/git/Django/Django/venv/src/templates/'],
+        'DIRS': [os.path.join(MY_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

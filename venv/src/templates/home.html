@@ -1,0 +1,10 @@
+{% extends 'header.html' %}
+
+{% block content %}
+    <h1>connect home html</h1>
+    {{request.user.is_authenticated}}
+    <p>
+      This is the home template.
+    </p>
+{% endblock %}
+
