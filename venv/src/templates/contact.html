@@ -2,5 +2,21 @@
 
 {% block content %}
     <h1>connect contact html</h1>
+
+    <p>
+      MY PHONE: {{my_phone}}
+    </p>
+    <p>
+      MY EMAIL: {{my_email}}
+    </p>
+
+    <ul>
+      {% for list in my_list %}
+      <li>
+        {{forloop.counter}} -
+        {{ list }}
+      </li>
+      {% endfor %}
+    </ul>
 {% endblock content %}
 

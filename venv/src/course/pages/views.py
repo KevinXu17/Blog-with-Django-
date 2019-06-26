@@ -12,7 +12,12 @@ def home_view(request, *args, **kwargs):
 
 def contact_view(request, *args, **kwargs):
     #return HttpResponse('<h1>Welcome to the contact page</h1>')
-    return render(request, 'contact.html', {})
+    my_contract = {
+        'my_phone': '778-123-4567',
+        'my_email': 'xxx@gmail.com',
+        'my_list' : [1, 3, 5]
+    }
+    return render(request, 'contact.html', my_contract)
 
 def about_view(request, *args, **kwargs):
     #return HttpResponse('<h1>Welcome to the about page</h1>')
