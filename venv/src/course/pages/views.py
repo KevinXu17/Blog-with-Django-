@@ -15,13 +15,19 @@ def contact_view(request, *args, **kwargs):
     my_contract = {
         'my_phone': '778-123-4567',
         'my_email': 'xxx@gmail.com',
-        'my_list' : [1, 3, 5]
+        'my_list' : [1, 3, 5, 'abc'],
+        'my_html' : '<h1>This is my HTML -- my_html </h1>'
     }
     return render(request, 'contact.html', my_contract)
 
 def about_view(request, *args, **kwargs):
     #return HttpResponse('<h1>Welcome to the about page</h1>')
-    return render(request, 'about.html', {})
+    my_context = {
+        'my_text': 'This is about page.',
+        'my_number': 123,
+        'my_list': [1313, 2321, 12, 'abc']
+    }
+    return render(request, 'about.html', my_context)
 
 def social_view(request, *args, **kwargs):
     #return HttpResponse('<h1>Welcome to the social page</h1>')

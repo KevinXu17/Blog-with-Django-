@@ -10,12 +10,20 @@
       MY EMAIL: {{my_email}}
     </p>
 
+    {{my_html|safe}}
+
     <ul>
       {% for list in my_list %}
+        {% if list == 3 %}
       <li>
         {{forloop.counter}} -
-        {{ list }}
+        {{ list|add:22 }}
       </li>
+        {% elif list == 'abc' %}
+        <li> {{list|add:"ef"|upper}}</li>
+        {% else %}
+        <li>{{forloop.counter}} - {{list}}</li>
+        {% endif %}
       {% endfor %}
     </ul>
 {% endblock content %}
