@@ -1,0 +1,10 @@
+{% extends 'header.html' %}
+
+{% block content %}
+    <h1>Title: {{obj.title}}</h1>
+    <h3>Description: {% if obj.description %}
+                       {{obj.description}}
+                     {% else %}
+                      Coming Soon
+                     {% endif %}</h3>
+{% endblock content %}
