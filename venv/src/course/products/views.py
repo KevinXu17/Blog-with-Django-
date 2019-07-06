@@ -1,14 +1,16 @@
 from django.shortcuts import render, redirect
-from .forms import ProductForm
+from .forms import ProductForm, RawProductForm
 from .models import Product
 
 # Create your views here.
 def product_create_view(request):
     form = ProductForm(request.POST or None)
-    if form.is_valid():
-          if not Product.objects.filter(title=request.POST['title']).exists():
-            form.save()
-            form = ProductForm()
+    if request.method == 'POST':
+        if form.is_valid():
+              if not Product.objects.filter(title=request.POST.get('title')).exists():
+                form.save()
+                form = ProductForm()
+
 
     context = {
         'form': form
@@ -29,5 +31,17 @@ def product_detail_view(request):
     return render(request, 'products/product_detail.html', context)
 
 def product_raw_create_view(request):
-    context = {}
+    # if request.method == 'POST':
+    #     new_title = request.POST.get("new_title")
+    #     print("====", new_title)
+    form = RawProductForm()
+    if request.method == 'POST':
+        form = RawProductForm(request.POST)
+        if form.is_valid():
+            Product.objects.create(**form.cleaned_data)
+        # else:
+        #     print(form.errors)
+    context = {
+        'form': form
+    }
     return render(request, 'products/product_raw_create.html', context)
