@@ -1,0 +1,10 @@
+{% extends 'header.html' %}
+
+{% block content %}
+    <h1>Create raw form</h1>
+<form method="post"> {% csrf_token%}
+
+    <input type="text" name="product_title" placeholder="product title"/>
+    <input type="submit" value="Save" />
+</form>
+{% endblock content %}

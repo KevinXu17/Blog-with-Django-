@@ -6,8 +6,9 @@ from .models import Product
 def product_create_view(request):
     form = ProductForm(request.POST or None)
     if form.is_valid():
-        form.save()
-        form = ProductForm()
+          if not Product.objects.filter(title=request.POST['title']).exists():
+            form.save()
+            form = ProductForm()
 
     context = {
         'form': form
@@ -26,3 +27,7 @@ def product_detail_view(request):
         'objs': objs
     }
     return render(request, 'products/product_detail.html', context)
+
+def product_raw_create_view(request):
+    context = {}
+    return render(request, 'products/product_raw_create.html', context)
