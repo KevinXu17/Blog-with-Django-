@@ -1,12 +1,13 @@
 {% extends 'header.html' %}
 
 {% block content %}
+
     <ul>
-        {% for product in objs %}
+
              <li>
-               <h4>Title : {{product.title}}</h4>
-               <h5>Price: {{product.price}}</h5>
+               <h4>Title : {{obj.title}}</h4>
+               <h5>Price: {{obj.price}}</h5>
              </li>
-        {% endfor %}
+
     </ul>
 {% endblock content %}

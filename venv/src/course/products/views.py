@@ -45,3 +45,20 @@ def product_raw_create_view(request):
         'form': form
     }
     return render(request, 'products/product_raw_create.html', context)
+
+def render_initial_data(request):
+    initial_data = {
+        'title': 'This is the initial title'
+    }
+    form = RawProductForm(request.POST or None, initial=initial_data )
+    context = {
+        'form': form
+    }
+    return render(request, 'products/product_create.html', context)
+
+def dynamic_lookup_view(request, my_id):
+    obj = Product.objects.get(id = my_id)
+    context = {
+        "obj": obj
+    }
+    return render(request, 'products/product_detail.html', context)
