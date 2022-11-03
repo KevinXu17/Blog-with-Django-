@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from .models import Post
 # Create your views here.
 
+
 def home(request):
     context = {
         ## Post.objects.all()
