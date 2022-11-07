@@ -1,7 +1,6 @@
 # Django
 
-## 1 database
-use google spreadsheets as database
+## how to use google spreadsheet as database
 1) create project in google cloud
 2) add google drive & google spreadsheet API
 3) create credentials key
